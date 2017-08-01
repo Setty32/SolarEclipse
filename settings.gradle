@@ -1,0 +1,4 @@
+include ':app'
+
+include ':screens'
+project(':screens').projectDir = new File('../screens/screens')

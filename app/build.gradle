@@ -1,0 +1,64 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '25.0.3'
+
+    defaultConfig {
+        applicationId "test.solareclipse"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+kapt { generateStubs = true }
+
+dependencies {
+    // Cleverlance libs
+    compile project(':screens')
+    // Core libs
+    compile supportAppCompat
+    compile supportDesign
+    compile kotlinStdLib
+    compile ankoCommons
+    compile ankoSdk21
+    compile ankoAppCompat
+    compile ankoDesign
+    compile ankoRecyclerView
+    // DI libs
+    compile dagger
+    kapt daggerCompiler
+    provided javaxAnnotation
+    // Rx libs
+    compile rxJava
+    compile rxAndroid
+    compile rxRelay
+    compile rxPermissions
+    compile rxBinding
+    compile rxBindingSupportV4
+    compile sqlBrite
+    compile rxJava2Interop
+    // Other libs
+    compile okHttpLoggingInterceptor
+    compile retrofit
+    compile retrofitGson
+    compile retrofitRxJava
+    compile fuelAndroid
+    compile viewPagerIndicator
+    compile javaTime
+    compile kotson
+    // Tests
+    testCompile kotlinStdLib
+    androidTestCompile supportAppCompat
+    compile 'com.google.android.gms:play-services-maps:11.0.4'
+}
